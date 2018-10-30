@@ -1,0 +1,41 @@
+{
+  "name": "mini-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "standard --fix lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ggviana/mini-react.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ggviana/mini-react/issues"
+  },
+  "homepage": "https://github.com/ggviana/mini-react#readme",
+  "devDependencies": {
+    "babel-core": "6.26.3",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
+    "babel-preset-env": "1.7.0",
+    "jest": "23.6.0"
+  },
+  "jest": {
+    "testRegex": ".+\\.test.js$",
+    "modulePaths": [
+      "lib"
+    ]
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it",
+      "expect"
+    ]
+  }
+}
