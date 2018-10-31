@@ -34,7 +34,7 @@
     "rollup-plugin-serve": "0.6.0"
   },
   "jest": {
-    "testRegex": ".+\\.test.js$",
+    "testRegex": "test/.+\\.js$",
     "modulePaths": [
       "lib"
     ]
