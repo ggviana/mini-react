@@ -37,7 +37,8 @@
     "testRegex": "test/.+\\.js$",
     "modulePaths": [
       "lib"
-    ]
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js"
   },
   "standard": {
     "globals": [
