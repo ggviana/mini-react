@@ -1,3 +1,5 @@
+var App = (function ({Component, node}) {
+
 class App extends Component {
   constructor (props) {
     super(props)
@@ -70,3 +72,6 @@ class LimitLabel extends Component {
     })
   }
 }
+
+return App
+}(MiniReact));
