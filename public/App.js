@@ -1,4 +1,4 @@
-var App = (function ({Component, node}) {
+var App = (function ({ Component, node }) {
 
 class App extends Component {
   constructor (props) {
@@ -24,6 +24,9 @@ class App extends Component {
 
     return node({
       tagName: 'div',
+      props: {
+        className: 'page'
+      },
       children: [
         node({
           tagName: 'h1',
