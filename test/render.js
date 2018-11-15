@@ -1,5 +1,4 @@
-import render from 'render'
-import node from 'node'
+import { render, node, Component } from '../lib'
 
 const root = document.getElementById('root')
 
@@ -42,7 +41,7 @@ describe('render', () => {
     expect(ul.childElementCount).toBe(3)
   })
 
-  it('doesnt render null, undefined and booleans', () => {
+  it("doesn't render null, undefined and booleans", () => {
     render(null, root)
     render(undefined, root)
     render(true, root)
@@ -66,5 +65,55 @@ describe('render', () => {
 
     const container = document.querySelector('section')
     expect(container.childElementCount).toBe(1)
+  })
+
+  it('render Components instances', () => {
+    class Label extends Component {
+      render () {
+        return node({
+          tagName: 'label',
+          props: {
+            textContent: this.props.text
+          }
+        })
+      }
+    }
+
+    render(new Label({ text: 'Hello world' }), root)
+
+    const label = document.querySelector('label')
+    expect(label).not.toBe(null)
+    expect(label.textContent).toBe('Hello world')
+  })
+
+  it('render a Component within a element', () => {
+    class Label extends Component {
+      render () {
+        return node({
+          tagName: 'label',
+          props: {
+            textContent: this.props.text
+          }
+        })
+      }
+    }
+
+    const element = node({
+      tagName: 'section',
+      children: [
+        node({
+          componentClass: Label,
+          props: {
+            text: 'Hello world'
+          }
+        })
+      ]
+    })
+
+    render(element, root)
+
+    const label = document.querySelector('label')
+    expect(label).not.toBe(null)
+    expect(label.textContent).toBe('Hello world')
   })
 })

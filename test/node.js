@@ -1,4 +1,4 @@
-import node from 'node'
+import { node, Component } from '../lib'
 
 describe('node', () => {
   const onchange = () => {}
@@ -84,5 +84,44 @@ describe('node', () => {
     }
 
     expect(element).toMatchObject(desiredElement)
+  })
+
+  it('should be able to create a class component', () => {
+    class Label extends Component {
+      render () {
+        return node({
+          tagName: 'label',
+          props: {
+            textContent: this.props.text
+          }
+        })
+      }
+    }
+
+    const element = node({
+      componentClass: Label,
+      props: {
+        text: 'Hello world'
+      }
+    })
+
+    const desiredElement = {
+      type: Label,
+      children: [],
+      props: {
+        text: 'Hello world'
+      }
+    }
+
+    expect(element).toMatchObject(desiredElement)
+  })
+
+  it('should throw when neither a `componentClass` ot a `tagName` is passed', () => {
+    expect(() => node({
+      children: [],
+      props: {
+        textContent: 'Hello world'
+      }
+    })).toThrow()
   })
 })
