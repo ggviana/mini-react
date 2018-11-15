@@ -71,7 +71,45 @@ class LimitLabel extends Component {
 
     return node({
       tagName: 'p',
-      textContent: `R$ ${maxLimit - definedLimit} disponíveis`
+      children: [
+        node({
+          componentClass: Currency,
+          props: {
+            value: maxLimit - definedLimit
+          }
+        }),
+        node({
+          textContent: ' disponíveis'
+        })
+      ]
+    })
+  }
+}
+
+class Currency extends Component {
+  render () {
+    const [, integer, cents] = this.props.value.toFixed(2).match(/(\d+)\.(\d+)/)
+
+    return node({
+      tagName: 'span',
+      className: 'currency',
+      children: [
+        node({
+          tagName: 'span',
+          className: 'currency-symbol',
+          textContent: 'R$ '
+        }),
+        node({
+          tagName: 'span',
+          className: 'currency-integer',
+          textContent: `${integer}`
+        }),
+        node({
+          tagName: 'span',
+          className: 'currency-cents',
+          textContent: `,${cents}`
+        })
+      ]
     })
   }
 }
