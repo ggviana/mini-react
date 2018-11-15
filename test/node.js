@@ -116,12 +116,20 @@ describe('node', () => {
     expect(element).toMatchObject(desiredElement)
   })
 
-  it('should throw when neither a `componentClass` ot a `tagName` is passed', () => {
-    expect(() => node({
-      children: [],
+  it('should generate a text node if `componentClass` or a `tagName` is not passed', () => {
+    const element = node({
       props: {
         textContent: 'Hello world'
       }
-    })).toThrow()
+    })
+
+    const desiredElement = {
+      type: '',
+      props: {
+        textContent: 'Hello world'
+      }
+    }
+
+    expect(element).toMatchObject(desiredElement)
   })
 })
