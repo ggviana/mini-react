@@ -13,6 +13,16 @@ describe('util/updateDom', () => {
     expect(button.textContent).toBe('Click here')
   })
 
+  it('sets the className', () => {
+    let button = document.createElement('button')
+
+    button = updateDom(button, {
+      className: 'btn-primary'
+    })
+
+    expect(button.classList.toString()).toBe('btn-primary')
+  })
+
   it('updates the attribute of a dom element', () => {
     let button = document.createElement('button')
 
