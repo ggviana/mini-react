@@ -9,17 +9,13 @@ describe('util/isRemovableNode', () => {
 
     class SampleComponent extends Component {
       render () {
-        return node({
-          textContent: 'sample component'
-        })
+        return node('sample component')
       }
     }
 
     expect(isRemovableNode(new SampleComponent())).toBeFalsy()
 
-    const sampleNode = node({
-      textContent: 'sample node'
-    })
+    const sampleNode = node('sample node')
 
     expect(isRemovableNode(sampleNode)).toBeFalsy()
   })

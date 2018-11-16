@@ -78,9 +78,7 @@ class LimitLabel extends Component {
             value: maxLimit - definedLimit
           }
         }),
-        node({
-          textContent: ' disponíveis'
-        })
+        node(' disponíveis')
       ]
     })
   }

@@ -117,11 +117,7 @@ describe('node', () => {
   })
 
   it('should generate a text node if `componentClass` or a `tagName` is not passed', () => {
-    const element = node({
-      props: {
-        textContent: 'Hello world'
-      }
-    })
+    const element = node('Hello world')
 
     const desiredNode = {
       type: '',
