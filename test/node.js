@@ -3,7 +3,7 @@ import { node, Component } from '../lib'
 describe('node', () => {
   const onchange = () => {}
 
-  it('should create a normalized element object', () => {
+  it('should create a normalized node object', () => {
     const element = node({
       tagName: 'input',
       type: 'range',
@@ -13,7 +13,7 @@ describe('node', () => {
       onchange
     })
 
-    const desiredElement = {
+    const desiredNode = {
       type: 'input',
       children: [],
       props: {
@@ -26,7 +26,7 @@ describe('node', () => {
     }
 
 
-    expect(element).toMatchObject(desiredElement)
+    expect(element).toMatchObject(desiredNode)
   })
 
   it('should be able to create a tree of components', () => {
@@ -53,7 +53,7 @@ describe('node', () => {
       ]
     })
 
-    const desiredElement = {
+    const desiredNode = {
       type: 'section',
       children: [
         {
@@ -83,7 +83,7 @@ describe('node', () => {
       ]
     }
 
-    expect(element).toMatchObject(desiredElement)
+    expect(element).toMatchObject(desiredNode)
   })
 
   it('should be able to create a class component', () => {
@@ -105,7 +105,7 @@ describe('node', () => {
       }
     })
 
-    const desiredElement = {
+    const desiredNode = {
       type: Label,
       children: [],
       props: {
@@ -113,7 +113,7 @@ describe('node', () => {
       }
     }
 
-    expect(element).toMatchObject(desiredElement)
+    expect(element).toMatchObject(desiredNode)
   })
 
   it('should generate a text node if `componentClass` or a `tagName` is not passed', () => {
@@ -123,13 +123,13 @@ describe('node', () => {
       }
     })
 
-    const desiredElement = {
+    const desiredNode = {
       type: '',
       props: {
         textContent: 'Hello world'
       }
     }
 
-    expect(element).toMatchObject(desiredElement)
+    expect(element).toMatchObject(desiredNode)
   })
 })

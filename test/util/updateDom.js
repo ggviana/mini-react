@@ -3,7 +3,7 @@ import updateDom from 'util/updateDom'
 describe('util/updateDom', () => {
   const click = dom => dom.dispatchEvent(new MouseEvent('click'))
 
-  it('sets a attribute of a dom element', () => {
+  it('sets a attribute of a dom node', () => {
     let button = document.createElement('button')
 
     button = updateDom(button, {
@@ -23,7 +23,7 @@ describe('util/updateDom', () => {
     expect(button.classList.toString()).toBe('btn-primary')
   })
 
-  it('updates the attribute of a dom element', () => {
+  it('updates the attribute of a dom node', () => {
     let button = document.createElement('button')
 
     button = updateDom(button, {
@@ -37,7 +37,7 @@ describe('util/updateDom', () => {
     expect(button.textContent).toBe('Click me')
   })
 
-  it('remove old attributes of a dom element', () => {
+  it('remove old attributes of a dom node', () => {
     let button = document.createElement('button')
 
     const oldProps = {
@@ -59,7 +59,7 @@ describe('util/updateDom', () => {
     expect(button.value).toBe('')
   })
 
-  it('subscribes events of a dom element', () => {
+  it('subscribes events of a dom node', () => {
     let button = document.createElement('button')
     const onclick = jest.fn()
 
@@ -72,7 +72,7 @@ describe('util/updateDom', () => {
     expect(onclick).toBeCalled()
   })
 
-  it('unsubscribes old events of a dom element', () => {
+  it('unsubscribes old events of a dom node', () => {
     let button = document.createElement('button')
     const oldProps = {
       textContent: 'Click here',

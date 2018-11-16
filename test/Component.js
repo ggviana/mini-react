@@ -87,8 +87,8 @@ describe('Component', () => {
     })
   })
 
-  describe('toElement', () => {
-    it('returns a node element from a Component', () => {
+  describe('toNode', () => {
+    it('returns a node node from a Component', () => {
       class Counter extends Component {
         constructor (props) {
           super(props)
@@ -116,14 +116,14 @@ describe('Component', () => {
 
       const counter = new Counter({ count: 10 })
 
-      const desiredElement = node({
+      const desiredNode = node({
         componentClass: Counter,
         props: {
           count: 10
         }
       })
 
-      expect(counter.toElement()).toMatchObject(desiredElement)
+      expect(counter.toNode()).toMatchObject(desiredNode)
     })
   })
 })

@@ -86,7 +86,7 @@ describe('render', () => {
     expect(label.textContent).toBe('Hello world')
   })
 
-  it('render a Component within a element', () => {
+  it('render a Component within a node', () => {
     class Label extends Component {
       render () {
         return node({
