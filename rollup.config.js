@@ -5,29 +5,33 @@ import path from 'path'
 
 const pkg = require('./package.json')
 
+const inDevelopment = callback => {
+  if (process.env.NODE_ENV !== 'production') {
+    return callback()
+  }
+}
+
 export default {
   input: 'lib/index.js',
-  output: [
-    {
-      file: pkg.main,
-      name: 'MiniReact',
-      format: 'iife',
-      sourcemap: true
-    }
-  ],
+  output: {
+    file: pkg.main,
+    name: 'MiniReact',
+    format: 'iife',
+    sourcemap: true
+  },
   plugins: [
     alias({
       'util': path.resolve(__dirname, './lib/util')
     }),
     copy({
       'public/index.html':   'solution/index.html',
-      'public/App.js':       'solution/js/App.js',
-      verbose: true
+      'public/styles.css':   'solution/styles.css',
+      'public/App.js':       'solution/js/App.js'
     }),
-    serve({
+    inDevelopment(() => serve({
       open: true,
       contentBase: 'solution',
       port: 8080
-    })
+    }))
   ]
 }
