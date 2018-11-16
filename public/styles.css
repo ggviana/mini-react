@@ -1,0 +1,211 @@
+:root {
+  --color-primary: #278bff;
+  --color-sencondary: #b5cae3;
+  
+  /* Page */
+  --page-background: #f2f2f2;
+  --page-height: 640px;
+  --page-margin: 30px;
+  --page-width: 360px;
+  
+  /* Range */
+  --range-track-radius: 6px;
+  --range-track-height: 8px;
+  --range-track-active-height: 16px;
+  --range-track-color: var(--color-sencondary);
+  --range-track-active-color: var(--color-primary);
+  
+  --range-thumb-radius: 50%;
+  --range-thumb-background-color: #006ae5;
+  --range-thumb-shadow: 0px 4px 5px 1px rgba(0, 0, 0, 0.404);
+  --range-thumb-size: 40px;
+  --range-thumb-margin: calc((var(--range-thumb-size) - var(--range-track-height)) / 2 * -1);
+  
+  --range-label-color: #4a4a4a;
+}
+
+html {
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  border-bottom: 1px solid var(--color-sencondary);
+  font-size: 12px;
+  letter-spacing: 3px;
+  line-height: 14px;
+  padding: 20px;
+  margin: 0 calc(var(--page-margin) * -1);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+input[type=text] {
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px dashed var(--color-sencondary);
+  color: var(--color-primary);
+  display: block;
+  font-size: 48px;
+  line-height: 56px;
+  margin: 150px 20px 10px 20px;
+  text-align: center;
+  width: calc(100% - 40px);
+}
+
+/* Range*/
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+  position: relative;
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+
+input[type=range]::before,
+input[type=range]::after {
+  color: var(--range-label-color);
+  font-size: 16px;
+  position: absolute;
+  top: 30px;
+}
+
+input[type=range]::before {
+  content: attr(min);
+  left: 0;
+}
+
+input[type=range]::after {
+  content: attr(max);
+  right: 0;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: var(--range-thumb-background-color);
+  border: none;
+  border-radius: var(--range-thumb-radius);
+  box-shadow: var(--range-thumb-shadow);
+  cursor: pointer;
+  height: var(--range-thumb-size);
+  margin-top: var(--range-thumb-margin);
+  width: var(--range-thumb-size);
+}
+
+input[type=range]::-moz-range-thumb {
+  -webkit-appearance: none;
+  background: var(--range-thumb-background-color);
+  border: none;
+  border-radius: var(--range-thumb-radius);
+  box-shadow: var(--range-thumb-shadow);
+  cursor: pointer;
+  height: var(--range-thumb-size);
+  width: var(--range-thumb-size);
+}
+
+input[type=range]::-ms-thumb {
+  -webkit-appearance: none;
+  background: var(--range-thumb-background-color);
+  border: none;
+  border-radius: var(--range-thumb-radius);
+  box-shadow: var(--range-thumb-shadow);
+  cursor: pointer;
+  height: var(--range-thumb-size);
+  width: var(--range-thumb-size);
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  background: var(--range-track-color);
+  border: none;
+  border-radius: var(--range-track-radius);
+  cursor: pointer;
+  height: var(--range-track-height);
+  transition: background .7s ease-in-out;
+  width: 100%;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track,
+input[type=range]:hover::-webkit-slider-runnable-track {
+  background: var(--range-track-active-color);
+}
+
+input[type=range]::-moz-range-track {
+  background: var(--range-track-color);
+  border-radius: var(--range-track-radius);
+  border: none;
+  cursor: pointer;
+  height: var(--range-track-height);
+  transition: background .7s ease-in-out;
+  width: 100%;
+}
+
+input[type=range]::-ms-track {
+  background: transparent;
+  border: none;
+  color: transparent;
+  cursor: pointer;
+  height: var(--range-track-height);
+  transition: background .7s ease-in-out;
+  width: 100%;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: var(--range-track-active-color);
+  border: none;
+  border-radius: var(--range-track-radius);
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: var(--range-track-active-color);
+}
+
+input[type=range]::-ms-fill-upper {
+  background: var(--range-track-color);
+  border: none;
+  border-radius: var(--range-track-radius);
+}
+
+p {
+  font-weight: 300;
+  text-align: center;
+}
+
+.page {
+  background-color: var(--page-background);
+  box-sizing: border-box;
+  height: var(--page-height);
+  padding: 0 var(--page-margin) var(--page-margin) var(--page-margin);
+  width: var(--page-width);
+}
+
+.currency-integer {
+  font-weight: bold;
+}
+
+.currency-cents {
+  display: inline-block;
+  margin-left: 4px;
+}
