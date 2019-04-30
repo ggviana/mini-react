@@ -23,22 +23,24 @@
   },
   "homepage": "https://github.com/ggviana/mini-react#readme",
   "devDependencies": {
-    "babel-core": "6.26.3",
-    "babel-plugin-transform-object-rest-spread": "6.26.0",
-    "babel-preset-env": "1.7.0",
-    "jest": "23.6.0",
-    "rimraf": "2.6.2",
-    "rollup": "0.66.6",
-    "rollup-plugin-alias": "1.4.0",
-    "rollup-plugin-copy": "0.2.3",
-    "rollup-plugin-serve": "0.6.0"
+    "@babel/core": "7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "7.4.4",
+    "@babel/preset-env": "7.4.4",
+    "jest": "24.7.1",
+    "rimraf": "2.6.3",
+    "rollup": "1.10.1",
+    "rollup-plugin-alias": "1.5.1",
+    "rollup-plugin-copy": "1.1.0",
+    "rollup-plugin-serve": "1.0.1"
   },
   "jest": {
     "testRegex": "test/.+\\.js$",
     "modulePaths": [
       "lib"
     ],
-    "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js"
+    "setupFilesAfterEnv": [
+      "<rootDir>/setupTests.js"
+    ]
   },
   "standard": {
     "globals": [
