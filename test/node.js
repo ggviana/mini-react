@@ -120,7 +120,7 @@ describe('node', () => {
     const element = node('Hello world')
 
     const desiredNode = {
-      type: '',
+      type: 'TEXT_NODE',
       props: {
         textContent: 'Hello world'
       }
