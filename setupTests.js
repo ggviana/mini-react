@@ -1,3 +1,3 @@
-const root = document.createElement('div')
-root.id = 'root'
-document.body.appendChild(root)
+const testRoot = document.createElement('div')
+testRoot.id = 'testRoot'
+document.body.appendChild(testRoot)

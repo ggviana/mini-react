@@ -24,9 +24,11 @@ export default {
       'util': path.resolve(__dirname, './lib/util')
     }),
     copy({
-      'public/index.html':   'solution/index.html',
-      'public/styles.css':   'solution/styles.css',
-      'public/App.js':       'solution/js/App.js'
+      targets: {
+        'public/index.html': 'solution/index.html',
+        'public/styles.css': 'solution/styles.css',
+        'public/App.js': 'solution/js/App.js'
+      }
     }),
     inDevelopment(() => serve({
       open: true,

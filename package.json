@@ -9,7 +9,7 @@
     "build": "NODE_ENV=production rollup -c rollup.config.js",
     "test": "jest",
     "test:watch": "jest --watch",
-    "lint": "standard --fix lib/**"
+    "lint": "standard --fix lib/** test/** ./*.js"
   },
   "repository": {
     "type": "git",
@@ -46,7 +46,9 @@
     "globals": [
       "describe",
       "it",
-      "expect"
+      "expect",
+      "testRoot",
+      "MouseEvent"
     ]
   }
 }

@@ -42,7 +42,7 @@ describe('Component', () => {
         }
       }
 
-      render(new Counter(), root)
+      render(new Counter(), testRoot)
 
       const renderedButton = document.querySelector('button')
       expect(renderedButton.textContent).toBe(`Current count: 0`)
@@ -77,7 +77,7 @@ describe('Component', () => {
         }
       }
 
-      render(new Counter(), root)
+      render(new Counter(), testRoot)
 
       const renderedButton = document.querySelector('button')
       expect(renderedButton.textContent).toBe(`Current count: 0`)

@@ -25,7 +25,6 @@ describe('node', () => {
       }
     }
 
-
     expect(element).toMatchObject(desiredNode)
   })
 

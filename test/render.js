@@ -1,6 +1,6 @@
 import { render, node, Component } from '../lib'
 
-const root = document.getElementById('root')
+const root = document.getElementById('testRoot')
 
 describe('render', () => {
   it('renders the tree', () => {
@@ -57,7 +57,7 @@ describe('render', () => {
         node({
           tagName: 'p',
           textContent: 'Hello world'
-        }),
+        })
       ]
     })
 
