@@ -1,26 +1,26 @@
 :root {
   --color-primary: #278bff;
   --color-sencondary: #b5cae3;
-  
+
   /* Page */
   --page-background: #f2f2f2;
   --page-height: 640px;
   --page-margin: 30px;
   --page-width: 360px;
-  
+
   /* Range */
   --range-track-radius: 6px;
   --range-track-height: 8px;
   --range-track-active-height: 16px;
   --range-track-color: var(--color-sencondary);
   --range-track-active-color: var(--color-primary);
-  
+
   --range-thumb-radius: 50%;
   --range-thumb-background-color: #006ae5;
   --range-thumb-shadow: 0px 4px 5px 1px rgba(0, 0, 0, 0.404);
   --range-thumb-size: 40px;
   --range-thumb-margin: calc((var(--range-thumb-size) - var(--range-track-height)) / 2 * -1);
-  
+
   --range-label-color: #4a4a4a;
 }
 
@@ -54,7 +54,13 @@ input[type=text] {
   line-height: 56px;
   margin: 150px 20px 10px 20px;
   text-align: center;
+  transition: border-bottom 800ms;
   width: calc(100% - 40px);
+}
+
+input[type=text]:focus {
+  border-bottom-color: var(--color-primary);
+  outline: 0;
 }
 
 /* Range*/
@@ -96,7 +102,7 @@ input[type=range]:focus {
 input[type=range]::-ms-track {
   width: 100%;
   cursor: pointer;
-  
+
   /* Hides the slider so custom styles can be added */
   background: transparent;
   border-color: transparent;
