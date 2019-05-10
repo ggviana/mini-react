@@ -1,4 +1,4 @@
-import render, { unmount } from 'render'
+import { render, unmount } from 'render'
 import node from 'node'
 import Component from 'Component'
 
