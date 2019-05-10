@@ -1,4 +1,6 @@
-import { render, node, Component } from '../lib'
+import render, { unmount } from 'render'
+import node from 'node'
+import Component from 'Component'
 
 const root = document.getElementById('testRoot')
 
@@ -115,5 +117,11 @@ describe('render', () => {
     const label = document.querySelector('label')
     expect(label).not.toBe(null)
     expect(label.textContent).toBe('Hello world')
+  })
+
+  it('unmount the application', () => {
+    unmount(testRoot)
+
+    expect(testRoot.childNodes.length).toBe(0)
   })
 })
