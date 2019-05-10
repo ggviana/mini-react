@@ -86,7 +86,7 @@ describe('reconcileChildren', () => {
     const renderedChildren = testRoot.querySelectorAll('li')
     expect(renderedChildren.length).toBe(2)
 
-    expect(testRoot.innerHTML).toBe("<ol><li>1</li><li>3</li></ol>")
+    expect(testRoot.innerHTML).toBe('<ol><li>1</li><li>3</li></ol>')
   })
 
   it('should update/replace all child elements', () => {
@@ -95,11 +95,11 @@ describe('reconcileChildren', () => {
       children: [
         node({
           tagName: 'h1',
-          textContent: "Title"
+          textContent: 'Title'
         }),
         node({
           tagName: 'h2',
-          textContent: "Subtitle"
+          textContent: 'Subtitle'
         }),
         node({
           tagName: 'p',
@@ -115,11 +115,11 @@ describe('reconcileChildren', () => {
       children: [
         node({
           tagName: 'p',
-          textContent: "Title"
+          textContent: 'Title'
         }),
         node({
           tagName: 'h2',
-          textContent: "New subtitle"
+          textContent: 'New subtitle'
         }),
         node({
           tagName: 'p',
@@ -134,6 +134,6 @@ describe('reconcileChildren', () => {
     expect(paragraphs.length).toBe(2)
 
     const heading = testRoot.querySelector('h2')
-    expect(heading.textContent).toBe("New subtitle")
+    expect(heading.textContent).toBe('New subtitle')
   })
 })

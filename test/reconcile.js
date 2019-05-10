@@ -12,7 +12,7 @@ describe('reconcile', () => {
       textContent: 'Title'
     })
 
-    const instance = reconcile(testRoot, null,  element)
+    const instance = reconcile(testRoot, null, element)
 
     expect(instance).toBeDefined()
     expect(instance.dom).toBeInstanceOf(HTMLParagraphElement)
@@ -25,7 +25,7 @@ describe('reconcile', () => {
       textContent: 'Title'
     })
 
-    const instance = reconcile(testRoot, null,  element)
+    const instance = reconcile(testRoot, null, element)
     expect(testRoot.children.length).toBe(1)
 
     reconcile(testRoot, instance, null)
@@ -38,7 +38,7 @@ describe('reconcile', () => {
       textContent: 'Title'
     })
 
-    const instance = reconcile(testRoot, null,  element)
+    const instance = reconcile(testRoot, null, element)
     expect(testRoot.children.length).toBe(1)
     expect(instance.dom).toBeInstanceOf(HTMLParagraphElement)
 
@@ -50,7 +50,7 @@ describe('reconcile', () => {
     const newInstance = reconcile(testRoot, instance, newElement)
     expect(testRoot.children.length).toBe(1)
     expect(newInstance.dom).toBeInstanceOf(HTMLHeadingElement)
-    expect(newInstance.dom.textContent).toBe("New title")
+    expect(newInstance.dom.textContent).toBe('New title')
   })
 
   it('should not update the instance when nothing changed', () => {
@@ -59,10 +59,10 @@ describe('reconcile', () => {
       textContent: 'Title'
     })
 
-    const instance = reconcile(testRoot, null,  element)
+    const instance = reconcile(testRoot, null, element)
     expect(testRoot.children.length).toBe(1)
     expect(instance.dom).toBeInstanceOf(HTMLParagraphElement)
-    expect(instance.dom.textContent).toBe("Title")
+    expect(instance.dom.textContent).toBe('Title')
 
     const newElement = node({
       tagName: 'p',
@@ -72,7 +72,7 @@ describe('reconcile', () => {
     const newInstance = reconcile(testRoot, instance, newElement)
     expect(testRoot.children.length).toBe(1)
     expect(newInstance.dom).toBeInstanceOf(HTMLParagraphElement)
-    expect(newInstance.dom.textContent).toBe("Title")
+    expect(newInstance.dom.textContent).toBe('Title')
   })
 
   it('should update the instance when a prop change', () => {
@@ -81,7 +81,7 @@ describe('reconcile', () => {
       textContent: 'Text'
     })
 
-    const instance = reconcile(testRoot, null,  element)
+    const instance = reconcile(testRoot, null, element)
     expect(testRoot.children.length).toBe(1)
     expect(instance.dom).toBeInstanceOf(HTMLParagraphElement)
     expect(instance.dom.textContent).toBe(element.props.textContent)
@@ -114,10 +114,10 @@ describe('reconcile', () => {
       value: 1
     })
 
-    const instance = reconcile(testRoot, null,  element)
+    const instance = reconcile(testRoot, null, element)
     expect(testRoot.children.length).toBe(1)
     expect(instance.dom).toBeInstanceOf(HTMLLabelElement)
-    expect(instance.dom.textContent).toBe("Current value: 1")
+    expect(instance.dom.textContent).toBe('Current value: 1')
 
     const newElement = node({
       componentClass: Label,
@@ -127,6 +127,6 @@ describe('reconcile', () => {
     const newInstance = reconcile(testRoot, instance, newElement)
     expect(testRoot.children.length).toBe(1)
     expect(newInstance.dom).toBeInstanceOf(HTMLLabelElement)
-    expect(newInstance.dom.textContent).toBe("Current value: 2")
+    expect(newInstance.dom.textContent).toBe('Current value: 2')
   })
 })

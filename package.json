@@ -47,8 +47,12 @@
       "describe",
       "it",
       "expect",
+      "beforeEach",
       "testRoot",
-      "MouseEvent"
+      "MouseEvent",
+      "HTMLHeadingElement",
+      "HTMLLabelElement",
+      "HTMLParagraphElement"
     ]
   }
 }
