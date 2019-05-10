@@ -1,7 +1,7 @@
-import isRemovableNode from 'util/isRemovableNode'
+import isRemovableNode from 'util/isRemovableElement'
 import { Component, node } from '../../lib'
 
-describe('util/isRemovableNode', () => {
+describe('util/isRemovableElement', () => {
   it('should consider null or boolean as removable', () => {
     expect(isRemovableNode(null)).toBeTruthy()
     expect(isRemovableNode(true)).toBeTruthy()
