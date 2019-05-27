@@ -1,6 +1,9 @@
-import { Component, render, node } from '../lib'
+import { Component, render, node, unmount } from '../lib'
+import reconcile from '../lib/reconcile'
 
 describe('Component', () => {
+  beforeEach(() => unmount(testRoot))
+
   const click = dom => dom.dispatchEvent(new MouseEvent('click'))
 
   describe('render', () => {
@@ -116,5 +119,109 @@ describe('Component', () => {
 
       expect(counter.toElement()).toMatchObject(desiredNode)
     })
+  })
+
+  it('calls the `willMount` before mounting', () => {
+    const willMount = jest.fn(() => {
+      expect(testRoot.querySelector('label')).toBe(null)
+    })
+
+    class Label extends Component {
+      willMount = willMount
+
+      render () {
+        return node({
+          tagName: 'label',
+          props: {
+            textContent: 'Hello world'
+          }
+        })
+      }
+    }
+
+    expect(willMount).not.toHaveBeenCalled()
+
+    render(new Label(), testRoot)
+
+    expect(willMount).toHaveBeenCalled()
+  })
+
+  it('calls the `didMount` after mounting', () => {
+    const didMount = jest.fn(() => {
+      expect(testRoot.querySelector('label')).toBeTruthy()
+    })
+
+    class Label extends Component {
+      didMount = didMount
+
+      render () {
+        return node({
+          tagName: 'label',
+          props: {
+            textContent: 'Hello world'
+          }
+        })
+      }
+    }
+
+    expect(didMount).not.toHaveBeenCalled()
+
+    render(new Label(), testRoot)
+
+    expect(didMount).toHaveBeenCalled()
+  })
+
+  it('calls the `willUnmount` after unmounting', () => {
+    const willUnmount = jest.fn(() => {
+      expect(testRoot.querySelector('label')).toBeTruthy()
+    })
+
+    class Label extends Component {
+      willUnmount = willUnmount
+
+      render () {
+        return node({
+          tagName: 'label',
+          props: {
+            textContent: 'Hello world'
+          }
+        })
+      }
+    }
+
+    render(new Label(), testRoot)
+
+    expect(willUnmount).not.toHaveBeenCalled()
+
+    unmount(testRoot)
+
+    expect(willUnmount).toHaveBeenCalled()
+  })
+
+  it('calls the `didUnmount` after unmounting', () => {
+    const didUnmount = jest.fn(() => {
+      expect(testRoot.querySelector('label')).toBe(null)
+    })
+
+    class Label extends Component {
+      didUnmount = didUnmount
+
+      render () {
+        return node({
+          tagName: 'label',
+          props: {
+            textContent: "Hello world"
+          }
+        })
+      }
+    }
+
+    render(new Label(), testRoot)
+
+    expect(didUnmount).not.toHaveBeenCalled()
+
+    unmount(testRoot)
+
+    expect(didUnmount).toHaveBeenCalled()
   })
 })
