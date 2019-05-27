@@ -14,11 +14,8 @@ describe('util/isDomElement', () => {
 
   it('should return false to Component class elements', () => {
     class Counter extends Component {
-      constructor () {
-        super()
-        this.state = {
-          value: 0
-        }
+      state = {
+        value: 0
       }
 
       increment () {

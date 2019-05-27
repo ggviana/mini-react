@@ -18,11 +18,8 @@ describe('Component', () => {
   describe('setState', () => {
     it('changes the state passing a function as stateMutator', () => {
       class Counter extends Component {
-        constructor () {
-          super()
-          this.state = {
-            value: 0
-          }
+        state = {
+          value: 0
         }
 
         increment () {
@@ -53,11 +50,8 @@ describe('Component', () => {
 
     it('changes the state passing a object as stateMutator', () => {
       class Counter extends Component {
-        constructor () {
-          super()
-          this.state = {
-            value: 0
-          }
+        state = {
+          value: 0
         }
 
         increment () {
@@ -90,11 +84,8 @@ describe('Component', () => {
   describe('toElement', () => {
     it('returns a node node from a Component', () => {
       class Counter extends Component {
-        constructor (props) {
-          super(props)
-          this.state = {
-            value: props.count
-          }
+        state = {
+          value: this.props.count
         }
 
         increment () {
